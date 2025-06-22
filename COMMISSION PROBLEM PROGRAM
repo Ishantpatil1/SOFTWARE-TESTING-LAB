@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class GroceryCommission {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Fixed item prices (per kg or litre)
+        double ricePrice = 50.0;
+        double oilPrice = 120.0;
+        double sugarPrice = 45.0;
+
+        // Different commission rates (in %)
+        double riceCommissionRate = 4.0;
+        double oilCommissionRate = 6.0;
+        double sugarCommissionRate = 5.0;
+
+        // Input: quantities
+        System.out.print("Enter quantity of Rice (kg): ");
+        double riceQty = sc.nextDouble();
+
+        System.out.print("Enter quantity of Oil (litres): ");
+        double oilQty = sc.nextDouble();
+
+        System.out.print("Enter quantity of Sugar (kg): ");
+        double sugarQty = sc.nextDouble();
+
+        // Sales calculations
+        double riceSale = riceQty * ricePrice;
+        double oilSale = oilQty * oilPrice;
+        double sugarSale = sugarQty * sugarPrice;
+
+        // Commission calculations
+        double riceComm = (riceSale * riceCommissionRate) / 100;
+        double oilComm = (oilSale * oilCommissionRate) / 100;
+        double sugarComm = (sugarSale * sugarCommissionRate) / 100;
+
+        // Totals
+        double totalSales = riceSale + oilSale + sugarSale;
+        double totalCommission = riceComm + oilComm + sugarComm;
+
+        // Output
+        System.out.println("\n--- Sales Report ---");
+        System.out.println("Item\tQty\tRate\tSale\tComm(%)\tCommission");
+
+        System.out.printf("Rice\t%.1f\t%.2f\t%.2f\t%.1f\t%.2f\n", riceQty, ricePrice, riceSale, riceCommissionRate, riceComm);
+        System.out.printf("Oil\t%.1f\t%.2f\t%.2f\t%.1f\t%.2f\n", oilQty, oilPrice, oilSale, oilCommissionRate, oilComm);
+        System.out.printf("Sugar\t%.1f\t%.2f\t%.2f\t%.1f\t%.2f\n", sugarQty, sugarPrice, sugarSale, sugarCommissionRate, sugarComm);
+
+        System.out.println("\nTotal Sales: ₹" + totalSales);
+        System.out.println("Total Commission: ₹" + totalCommission);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+Output:
+Enter quantity of Rice (kg): 2
+Enter quantity of Oil (litres): 1.5
+Enter quantity of Sugar (kg): 3
+
+--- Sales Report ---
+Item	Qty	Rate	Sale	Comm(%)	Commission
+Rice	2.0	50.00	100.00	4.0	4.00
+Oil	1.5	120.00	180.00	6.0	10.80
+Sugar	3.0	45.00	135.00	5.0	6.75
+
+Total Sales: ₹415.0
+Total Commission: ₹21.55
