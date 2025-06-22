@@ -1,0 +1,43 @@
+public class BinarySearch {
+    // Binary search function
+    public static int binarySearch(int numbers[], int target) {
+        int start = 0;
+        int end = numbers.length - 1;
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            if (numbers[mid] == target) {
+                return mid; // Target found
+            }
+
+            if (numbers[mid] < target) {
+                start = mid + 1; // Search in right half
+            } else {
+                end = mid - 1;   // Search in left half
+            }
+        }
+
+        return -1; // Target not found
+    }
+
+    public static void main(String[] args) {
+        int numbers[] = {1, 4, 6, 8, 9, 11, 13, 17}; // Sorted array
+        int target = 11;
+
+        int result = binarySearch(numbers, target);
+
+        if (result != -1) {
+            System.out.println("Number found at index: " + result);
+        } else {
+            System.out.println("Number not found in array.");
+        }
+    }
+}
+
+
+
+
+Output:
+Number found at index: 5
+
